@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.4                     
 ******************************************************************************
->> Linked Thu Jan  7 00:13:01 2021
+>> Linked Fri Jan  8 00:39:45 2021
 
 OUTPUT FILE NAME:   <001HelloWorld.out>
 ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 0000026d
