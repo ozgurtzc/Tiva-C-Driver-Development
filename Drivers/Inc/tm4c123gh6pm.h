@@ -133,7 +133,7 @@ typedef struct
     __VO uint32_t PCellID1;
     __VO uint32_t PCellID2;
     __VO uint32_t PCellID3;
-}GPIO_TypeDef;
+}GPIO_RegDef_t;
 
 typedef struct
 {
@@ -281,39 +281,46 @@ typedef struct
     __VO uint32_t PRQEI;
     __VO uint32_t PREEPROM;
     __VO uint32_t PRWTIMER;
-}SYSCTL_TypeDef;
+}SYSCTL_RegDef;
 
-#define GPIOA                   ((GPIO_TypeDef *) GPIOA_APB_BASE)
-#define GPIOB                   ((GPIO_TypeDef *) GPIOB_APB_BASE)
-#define GPIOC                   ((GPIO_TypeDef *) GPIOC_APB_BASE)
-#define GPIOD                   ((GPIO_TypeDef *) GPIOD_APB_BASE)
-#define GPIOE                   ((GPIO_TypeDef *) GPIOE_APB_BASE)
-#define GPIOF                   ((GPIO_TypeDef *) GPIOF_APB_BASE)
+#define GPIOA                   ((GPIO_RegDef_t *) GPIOA_APB_BASE)
+#define GPIOB                   ((GPIO_RegDef_t *) GPIOB_APB_BASE)
+#define GPIOC                   ((GPIO_RegDef_t *) GPIOC_APB_BASE)
+#define GPIOD                   ((GPIO_RegDef_t *) GPIOD_APB_BASE)
+#define GPIOE                   ((GPIO_RegDef_t *) GPIOE_APB_BASE)
+#define GPIOF                   ((GPIO_RegDef_t *) GPIOF_APB_BASE)
 
-#define SYSCTL                  ((SYSCTL_TypeDef *) SYSCTL_BASE)
+#define SYSCTL                  ((SYSCTL_RegDef *) SYSCTL_BASE)
 
-#define GPIOA_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 0)
-#define GPIOB_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 1)
-#define GPIOC_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 2)
-#define GPIOD_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 3)
-#define GPIOE_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 4)
-#define GPIOF_APB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 5)
+#define GPIOA_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 0))
+#define GPIOB_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 1))
+#define GPIOC_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 2))
+#define GPIOD_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 3))
+#define GPIOE_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 4))
+#define GPIOF_PCLK_EN()     (SYSCTL->GPIOHBCTL |= (1 << 5))
 
-#define GPIOA_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 0)
-#define GPIOB_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 1)
-#define GPIOC_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 2)
-#define GPIOD_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 3)
-#define GPIOE_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 4)
-#define GPIOF_APB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 5)
+#define GPIOA_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 0))
+#define GPIOB_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 1))
+#define GPIOC_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 2))
+#define GPIOD_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 3))
+#define GPIOE_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 4))
+#define GPIOF_PCLK_DI()     (SYSCTL->GPIOHBCTL &= ~(1 << 5))
 
-#define I2C0_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 0)
-#define I2C1_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 1)
-#define I2C2_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 2)
-#define I2C3_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 3)
+#define I2C0_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 0))
+#define I2C1_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 1))
+#define I2C2_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 2))
+#define I2C3_PERIPH_EN()        (SYSCTL->RCGCI2C |= (1 << 3))
 
-#define I2C0_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 0)
-#define I2C1_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 1)
-#define I2C2_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 2)
-#define I2C3_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 3)
+#define I2C0_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 0))
+#define I2C1_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 1))
+#define I2C2_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 2))
+#define I2C3_PERIPH_DI()        (SYSCTL->RCGCI2C &= ~(1 << 3))
+
+#define ENABLE                  1
+#define DISABLE                 0
+#define SET                     ENABLE
+#define RESET                   DISABLE
+#define GPIO_PIN_SET            SET
+#define GPIO_PIN_RESET          RESET
 
 #endif /* DRIVERS_INC_TM4C123GH6PM_H_ */
