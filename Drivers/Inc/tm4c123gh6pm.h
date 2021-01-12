@@ -323,4 +323,6 @@ typedef struct
 #define GPIO_PIN_SET            SET
 #define GPIO_PIN_RESET          RESET
 
+#define ASSERT(expr)
+
 #endif /* DRIVERS_INC_TM4C123GH6PM_H_ */

@@ -66,7 +66,30 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 
 }
 
-//void GPIO_Init(GPIO_Handle_t pGPIOHandle)
-//{
-//
-//}
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
+{
+    pGPIOHandle->pGPIOx->DR2R |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 1) ? \
+                                  (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
+                                 ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+
+    pGPIOHandle->pGPIOx->DR4R |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 2) ? \
+                                  (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
+                                 ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+
+    pGPIOHandle->pGPIOx->DR8R |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 4) ? \
+                                  (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
+                                 ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+
+    pGPIOHandle->pGPIOx->SLR |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 8) ? \
+                                 (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
+                                ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+
+    pGPIOHandle->pGPIOx->ODR |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl & 1) ? \
+                                 (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber))
+
+}
+
+void GPIO_ToggleOutputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+{
+
+}
