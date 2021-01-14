@@ -84,8 +84,8 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
                                  (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
                                 ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
 
-    pGPIOHandle->pGPIOx->ODR |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl & 1) ? \
-                                 (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber))
+//    pGPIOHandle->pGPIOx->ODR |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl & 1) ? \
+//                                 (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber))
 
 }
 
