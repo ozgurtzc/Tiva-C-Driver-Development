@@ -34,5 +34,5 @@ before_script:
   - arm-none-eabi-gcc --version
 
 script:
-  - cd build/ozgurtzc/Tiva-C-Driver-Development
+  - cd Tiva-C-Driver-Development
   - cmake ..
