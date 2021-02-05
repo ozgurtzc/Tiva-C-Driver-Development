@@ -5,7 +5,7 @@ OBJ = obj/
 
 OBJS = $(addprefix $(OBJ),$(notdir $(SRCS:.c=.o)))
 
-INC = Drives/Inc
+INC = -Iinc
 
 LD_SCRIPT = tm4c123gh6pm.ld
 
@@ -24,11 +24,11 @@ all: bin/$(PROJECT).bin
 
 $(OBJ)%.o: %.c               
 	$(MKDIR)              
-	$(CC) -o $@ $^ -I $(INC) $(CFLAGS)
+	$(CC) -o $@ $^ $(INC) $(CFLAGS)
 
 $(OBJ)%.o: Drivers/Src/%.c                
 	$(MKDIR)              
-	$(CC) -o $@ $^ -I $(INC) $(CFLAGS)
+	$(CC) -o $@ $^ $(INC) $(CFLAGS)
 	
 bin/$(PROJECT).elf: $(OBJS)      
 	$(MKDIR)              
