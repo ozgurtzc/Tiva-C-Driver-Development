@@ -24,5 +24,4 @@ int main(void)
         GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_0);
 
     }
-	return 0;
 }

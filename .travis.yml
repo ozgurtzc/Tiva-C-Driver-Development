@@ -1,4 +1,4 @@
-notifications:
+notification:
   email: false
 
 sudo: false
@@ -18,7 +18,7 @@ matrix:
 addons:
   apt:
     packages:
-    - libc6-i386 
+      - libc6-i386
 
 install:
   - pushd .
@@ -29,10 +29,9 @@ install:
   - tar -jxf gcc.tar.bz2 --strip=1
   - popd
   - export PATH=$HOME/arm-gcc-toolchain/bin:$PATH
-  
+
 before_script:
   - arm-none-eabi-gcc --version
 
 script:
-  - cd Tiva-C-Driver-Development
-  - cmake ..
+  - make 

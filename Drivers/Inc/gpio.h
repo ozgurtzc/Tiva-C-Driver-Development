@@ -31,41 +31,41 @@
 
 typedef enum
 {
-    GPIO_DIR_MODE_IN    = 0x0000,
-    GPIO_DIR_MODE_OUT   = 0x0001,
-    GPIO_DIR_MODE_HW    = 0x0002
+    GPIO_DIR_MODE_IN    = 0x0000, // Pin is a GPIO input
+    GPIO_DIR_MODE_OUT   = 0x0001, // Pin is a GPIO output
+    GPIO_DIR_MODE_HW    = 0x0002 // Pin is a peripheral function
 }GPIODir_TypeDef;
 
 typedef enum
 {
-    GPIO_FALLING_EDGE       = 0x0000,
-    GPIO_RISING_EDGE        = 0x0004,
-    GPIO_BOTH_EDGES         = 0x0001,
-    GPIO_LOW_LEVEL          = 0x0002,
-    GPIO_HIGH_LEVEL         = 0x0006,
-    GPIO_DISCRETE_INT       = 0x1000
+    GPIO_FALLING_EDGE       = 0x0000, // Interrupt on falling edge
+    GPIO_RISING_EDGE        = 0x0004, // Interrupt on rising edge
+    GPIO_BOTH_EDGES         = 0x0001, // Interrupt on both edges
+    GPIO_LOW_LEVEL          = 0x0002, // Interrupt on low level
+    GPIO_HIGH_LEVEL         = 0x0006, // Interrupt on high level
+    GPIO_DISCRETE_INT       = 0x1000 // Interrupt for individual pins
 }GPIOInt_TypeDef;
 
 typedef enum
 {
-    GPIO_STRENGTH_2MA       = 0x0001,
-    GPIO_STRENGTH_4MA       = 0x0002,
-    GPIO_STRENGTH_6MA       = 0x0065,
-    GPIO_STRENGTH_8MA       = 0x0066,
-    GPIO_STRENGTH_8MA_SC    = 0x006E,
-    GPIO_STRENGTH_10MA      = 0x0075,
-    GPIO_STRENGTH_12MA      = 0x0077
+    GPIO_STRENGTH_2MA       = 0x0001, // 2mA drive strenght
+    GPIO_STRENGTH_4MA       = 0x0002, // 4mA drive strenght
+    GPIO_STRENGTH_6MA       = 0x0065, // 6mA drive strenght
+    GPIO_STRENGTH_8MA       = 0x0066, // 8mA drive strenght
+    GPIO_STRENGTH_8MA_SC    = 0x006E, // 8mA drive with slew rate control
+    GPIO_STRENGTH_10MA      = 0x0075, // 10mA drive strenght
+    GPIO_STRENGTH_12MA      = 0x0077  // 12mA drive strenght
 }GPIOSth_TypeDef;
 
 typedef enum
 {
-    GPIO_PIN_TYPE_STD       = 0x0008,
-    GPIO_PIN_TYPE_STD_WPU   = 0x000A,
-    GPIO_PIN_TYPE_STD_WPD   = 0x000C,
-    GPIO_PIN_TYPE_OD        = 0x0009,
-    GPIO_PIN_TYPE_ANALOG    = 0x0000,
-    GPIO_PIN_TYPE_WAKE_HIGH = 0x0208,
-    GPIO_PIN_TYPE_WAKE_LOW  = 0x0108
+    GPIO_PIN_TYPE_STD       = 0x0008, //Push-Pull
+    GPIO_PIN_TYPE_STD_WPU   = 0x000A, // Push-Pull with weak pull-up
+    GPIO_PIN_TYPE_STD_WPD   = 0x000C, // Push-Pull with weak pull-down
+    GPIO_PIN_TYPE_OD        = 0x0009, // Open-Drain
+    GPIO_PIN_TYPE_ANALOG    = 0x0000, // Analog comparator
+    GPIO_PIN_TYPE_WAKE_HIGH = 0x0208, // Hibernate wake, high
+    GPIO_PIN_TYPE_WAKE_LOW  = 0x0108 // Hibernate wake, low
 }GPIOPuPd_TypeDef;
 
 typedef struct

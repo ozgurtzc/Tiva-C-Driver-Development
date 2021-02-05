@@ -13,7 +13,7 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
 "./Drivers/Src/gpio.obj" \
-"../tm4c123gh6pm.cmd" \
+"../tm4c123gh6pm.ld" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
 
@@ -137,11 +137,11 @@ BIN_OUTPUTS__QUOTED += \
 
 
 # All Target
-all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+all: $(OBJS) $(LD_SRCS) $(GEN_CMDS)
 	@$(MAKE) --no-print-directory -Onone "001HelloWorld.out"
 
 # Tool invocations
-001HelloWorld.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+001HelloWorld.out: $(OBJS) $(LD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Linker'
 	"D:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"001HelloWorld.map" --heap_size=0 --stack_size=512 -i"D:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.4.LTS/lib" -i"D:/ti/ccs1000/ccs/tools/compiler/ti-cgt-arm_20.2.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="001HelloWorld_linkInfo.xml" --rom_model -o "001HelloWorld.out" $(ORDERED_OBJS)

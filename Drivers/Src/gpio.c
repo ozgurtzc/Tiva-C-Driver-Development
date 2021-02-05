@@ -68,9 +68,18 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx, uint8_t EnorDi)
 
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
-    pGPIOHandle->pGPIOx->DR2R |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 1) ? \
+    if(pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 1)
+    {
+        pGPIOHandle->pGPIOx->DR2R = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 1) ? \
+                                          (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
+                                         ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+    }
+    pGPIOHandle->pGPIOx->DR2R = ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 1) ? \
                                   (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
                                  ~(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+
+    pGPIOHandle->pGPIOx->DR2R &= ~(1 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+
 
     pGPIOHandle->pGPIOx->DR4R |= ((pGPIOHandle->GPIO_PinConfig.GPIO_PinStrength & 2) ? \
                                   (pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber): \
