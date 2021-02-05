@@ -5,7 +5,7 @@ OBJ = obj/
 
 OBJS = $(addprefix $(OBJ),$(notdir $(SRCS:.c=.o)))
 
-INC = -Iinc
+INC = -IDrives/Inc
 
 LD_SCRIPT = tm4c123gh6pm.ld
 
